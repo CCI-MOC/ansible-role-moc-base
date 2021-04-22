@@ -1,0 +1,8 @@
+- name: check if reboot flag exists
+  stat:
+    path: /run/moc/needs_reboot
+  register: needs_reboot
+
+- name: reboot if requested
+  reboot:
+  when: needs_reboot.stat.exists

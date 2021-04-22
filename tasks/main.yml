@@ -1,0 +1,5 @@
+- name: ensure /run/moc directory exists
+  become: true
+  file:
+    path: /run/moc
+    state: directory

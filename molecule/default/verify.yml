@@ -1,0 +1,12 @@
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: check that /run/moc exists
+    stat:
+      path: /run/moc
+    register: runmoc_check
+
+  - name: assert that /run/moc exists
+    assert:
+      that: runmoc_check.stat.exists
